@@ -26,13 +26,12 @@ describe("requestHeaderParser", function () {
 
     it("should return parsed headers information, given mock information", function () {
         //    given
-        var mockIpAddress = "192.168.1.1";
         var expectedResponse = {
-            ipaddress: mockIpAddress,
+            ipaddress: "192.168.1.1",
             language: "en-US",
             software: "Windows NT 10.0; WOW64; rv:53.0"
         };
-        mockRequest.headers['x-forwarded-for'] = mockIpAddress;
+        mockRequest.headers['x-forwarded-for'] = "192.168.1.1,::ffff:10.10.10.200,10.10.10.20,::ffff:100.10.0.1";
 
         //    when
         var response = requestHeaderParser(mockRequest);

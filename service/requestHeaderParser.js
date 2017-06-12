@@ -7,6 +7,9 @@ function getLanguageFromHeaders(headers) {
 function getSoftwareFromHeaders(headers) {
     return /.*\((.*)\)/.exec(headers['user-agent'])[1];
 }
+function normalizeIpAddress(ipaddress) {
+    return ipaddress.split(",")[0];
+}
 module.exports = function (request) {
     var headers = request.headers;
     var language = getLanguageFromHeaders(headers);
@@ -15,6 +18,7 @@ module.exports = function (request) {
         request.connection.remoteAddress ||
         request.socket.remoteAddress ||
         request.connection.socket.remoteAddress;
+    ipaddress = normalizeIpAddress(ipaddress);
 
     return {
         language: language,
