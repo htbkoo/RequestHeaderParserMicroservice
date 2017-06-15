@@ -1,5 +1,5 @@
 {
-  "name": "timestamp",
+  "name": "request_header_parser_microservice",
   "version": "0.1.0",
   "private": true,
   "scripts": {
