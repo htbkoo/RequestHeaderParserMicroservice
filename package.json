@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "test": "mocha service/**/*.test.{js,jsx}",
+    "test:unit": "mocha service/test-unit/**/*.test.{js,jsx}",
     "debug": "set DEBUG=express:* & node %NODE_DEBUG_OPTION% ./bin/www",
     "debugTimestamp": "set DEBUG=timstamp & node %NODE_DEBUG_OPTION% ./bin/www"
   },
